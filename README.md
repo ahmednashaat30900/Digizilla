@@ -22,9 +22,8 @@ A custom Odoo addon that introduces the **Digizilla** model — a complete recor
 
 ### Piviot & Kanban Views
 <p align="center">
+ <img width="48%" height="316" alt="TT" src="https://github.com/user-attachments/assets/aa47d47a-ad50-4c80-b227-e008e542afef" />
 <img width="48%" height="500" alt="yu" src="https://github.com/user-attachments/assets/797c178c-ac6f-46ce-a13a-af4bb1f96455" />
-
-<img width="48%" height="316" alt="TT" src="https://github.com/user-attachments/assets/aa47d47a-ad50-4c80-b227-e008e542afef" />
 
 
 </p>
