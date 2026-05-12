@@ -1,8 +1,5 @@
 # Digizilla
 
-![Odoo Version](https://img.shields.io/badge/Odoo-19.0%20Community-7C3AED)
-![License](https://img.shields.io/badge/License-LGPL--3-blue)
-![Version](https://img.shields.io/badge/Version-19.0.1.0.0-green)
 
 A custom Odoo addon that introduces the **Digizilla** model — a complete record management application with form, kanban, list, and pivot views, PDF reporting, role-based access control, and a custom JavaScript enhancement.
 
