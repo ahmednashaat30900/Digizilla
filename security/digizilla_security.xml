@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Module Category -->
+        <record id="module_digizilla_category" model="ir.module.category">
+            <field name="name">Digizilla</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <!-- Security Group: Digizillians -->
+        <record id="group_digizillians" model="res.groups">
+            <field name="name">Digizillians</field>
+            <field name="category_id" ref="module_digizilla_category"/>
+            <field name="comment">Access group for the Digizilla application.</field>
+        </record>
+
+    </data>
+</odoo>

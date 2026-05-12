@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===================== FORM VIEW ===================== -->
+    <record id="view_digizilla_form" model="ir.ui.view">
+        <field name="name">digizilla.digizilla.form</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <form string="Digizilla">
+                <sheet>
+                    <!-- Smart Button Bar -->
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_view_sale_orders"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-shopping-cart"
+                            invisible="not customer_id">
+                            <field
+                                name="sale_order_count"
+                                widget="statinfo"
+                                string="Sales Orders"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Personal Information">
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age" readonly="1"/>
+                            <field name="country_id"/>
+                        </group>
+                        <group string="Customer Information">
+                            <field name="customer_id"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Notes" name="notes_tab">
+                            <field name="notes" widget="html"/>
+                        </page>
+                        <page string="Comments" name="comments_tab">
+                            <field name="comments" placeholder="Add a comment..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <!-- Odoo default Messages & Log -->
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ===================== KANBAN VIEW ===================== -->
+    <record id="view_digizilla_kanban" model="ir.ui.view">
+        <field name="name">digizilla.digizilla.kanban</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <kanban string="Digizilla" class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="tag_ids"/>
+                <field name="customer_id"/>
+                <field name="sale_order_count"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_title">
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div>
+                                    <span class="text-muted">Age: </span>
+                                    <field name="age"/>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Customer: </span>
+                                    <field name="customer_id"/>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Sales Orders: </span>
+                                    <field name="sale_order_count"/>
+                                </div>
+                                <div>
+                                    <field name="tag_ids" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ===================== LIST VIEW ===================== -->
+    <record id="view_digizilla_list" model="ir.ui.view">
+        <field name="name">digizilla.digizilla.list</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <list string="Digizilla">
+                <!-- Required columns -->
+                <field name="name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="tag_ids" widget="many2many_tags"/>
+                <!-- Optional columns -->
+                <field name="country_id" optional="show"/>
+                <field name="gender" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ===================== PIVOT VIEW ===================== -->
+    <record id="view_digizilla_pivot" model="ir.ui.view">
+        <field name="name">digizilla.digizilla.pivot</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <pivot string="Digizilla">
+                <field name="customer_id" type="row"/>
+                <field name="gender" type="col"/>
+                <field name="age" type="measure"/>
+                <field name="sale_order_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ===================== ACTION ===================== -->
+    <record id="action_digizilla" model="ir.actions.act_window">
+        <field name="name">Digizilla</field>
+        <field name="res_model">digizilla.digizilla</field>
+        <field name="view_mode">list,kanban,form,pivot</field>
+        <field name="help" type="xml">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Digizilla record!
+            </p>
+        </field>
+    </record>
+
+</odoo>

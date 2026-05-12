@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_digizilla_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <!-- Report Title -->
+                        <div class="row mb-4">
+                            <div class="col-12 text-center">
+                                <h2>Digizilla Report</h2>
+                                <hr/>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <h4 class="text-primary">Personal Information</h4>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Name:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.name"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Gender:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.gender"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Country:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.country_id"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Birth Date:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.birth_date"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Age:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.age"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Tags:</strong>
+                            </div>
+                            <div class="col-8">
+                                <t t-foreach="doc.tag_ids" t-as="tag">
+                                    <span t-esc="tag.name"/>
+                                    <t t-if="not tag_last">, </t>
+                                </t>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <!-- Customer Information -->
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <h4 class="text-primary">Customer Information</h4>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>Customer:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.customer_id"/>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-4">
+                                <strong>No. of Sales Orders:</strong>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="doc.sale_order_count"/>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <!-- Notes -->
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <h4 class="text-primary">Notes</h4>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-12">
+                                <span t-field="doc.notes" widget="html"/>
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <!-- Comments -->
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <h4 class="text-primary">Comments</h4>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-12">
+                                <span t-field="doc.comments"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
