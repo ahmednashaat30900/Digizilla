@@ -4,7 +4,9 @@
 A custom Odoo addon that introduces the **Digizilla** model — a complete record management application with form, kanban, list, and pivot views, PDF reporting, role-based access control, and a custom JavaScript enhancement.
 
 
-
+---
+## Demo
+Demo: [View Demo](https://drive.google.com/file/d/1yS9de181yWZM2Xdh96U4kiOGJb82XDrU/view?usp=sharing)
 
 ---
 
